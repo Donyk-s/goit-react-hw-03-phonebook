@@ -19,12 +19,28 @@ export class App extends Component {
     this.setState({ filter: value });
   };
 
-  checkContactExists = name => {
-    return this.state.contacts.some(
-      contact => contact.name.toLowerCase() === name.toLowerCase()
-    );
-  };
-
+  // checkContactExists = name => {
+  //   return this.state.contacts.some(
+  //     contact => contact.name.toLowerCase() === name.toLowerCase()
+  //   );
+  // };
+  // render > didMount > getItem > setState >u pdate > render > didUpdate > setItem
+  componentDidMount() {
+    console.log('componentDidMount');
+    const savedContacts = localStorage.getItem('contacts');
+    console.log(savedContacts);
+    if (savedContacts !== null) {
+      this.setState({ contacts: JSON.parse(savedContacts) });
+    } else {
+      this.setState({ contacts: [] });
+    }
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.contacts !== this.state.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+      console.log(this.state.contacts);
+    }
+  }
   formSubmitHandler = data => {
     const { contacts } = this.state;
     const isContactExists = contacts.some(
