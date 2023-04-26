@@ -1,0 +1,58 @@
+.container {
+  font-size: 48px;
+  color: chocolate;
+}
+.formBox {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid grey;
+  padding: 24px;
+  width: 350px;
+  border-radius: 18px;
+  border: 1px solid #18ab29;
+}
+.myButton {
+  box-shadow: 3px 4px 0px 0px #3dc21b;
+  background: linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
+  background-color: #44c767;
+  border-radius: 18px;
+  border: 1px solid #18ab29;
+
+  /* display: inline-block; */
+  width: max-content;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 7px 25px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2f6627;
+  margin-top: 15px;
+}
+.myButton:hover {
+  background: linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+  background-color: #5cbf2a;
+}
+.myButton:active {
+  position: relative;
+  top: 1px;
+}
+.input {
+  padding: 8px;
+  font-size: 21px;
+  border-width: 3px;
+  border-radius: 22px;
+  border-style: double;
+  border-color: #7dd435;
+  color: #519671;
+  background-color: #c6dedd;
+  text-shadow: -1px 0px 1px rgba(42, 42, 42, 0.5);
+  box-shadow: 0px 0px 5px 0px rgba(42, 42, 42, 0.75);
+}
+.input:focus {
+  outline: none;
+}
+.labelInput {
+  font-size: 48px;
+  color: chocolate;
+}
