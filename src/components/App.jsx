@@ -19,16 +19,10 @@ export class App extends Component {
     this.setState({ filter: value });
   };
 
-  // checkContactExists = name => {
-  //   return this.state.contacts.some(
-  //     contact => contact.name.toLowerCase() === name.toLowerCase()
-  //   );
-  // };
-  // render > didMount > getItem > setState >u pdate > render > didUpdate > setItem
+  // render > didMount > getItem > setState > update > render > didUpdate > setItem
   componentDidMount() {
-    console.log('componentDidMount');
     const savedContacts = localStorage.getItem('contacts');
-    console.log(savedContacts);
+
     if (savedContacts !== null) {
       this.setState({ contacts: JSON.parse(savedContacts) });
     } else {
@@ -38,7 +32,6 @@ export class App extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevState.contacts !== this.state.contacts) {
       localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
-      console.log(this.state.contacts);
     }
   }
   formSubmitHandler = data => {
@@ -80,10 +73,7 @@ export class App extends Component {
           color: '#010101',
         }}
       >
-        <Form
-          onSubmit={this.formSubmitHandler}
-          contacts={this.state.contacts}
-        />
+        <Form onSubmit={this.formSubmitHandler} />
         <ContactList
           contacts={filteredContacts}
           onDeleteContact={this.handleDeleteContact}
